@@ -2,6 +2,13 @@
 
 require "database.php";
 
+session_start();
+
+if (!isset($_SESSION["user"])) {
+  header("Location: login.php");
+  return;
+}
+
 $id = $_GET["id"];
 
 $statement = $conn->prepare("SELECT * FROM contacts WHERE id = :id LIMIT 1");
@@ -14,6 +21,12 @@ if ($statement->rowCount() == 0) {
 }
 
 $contact = $statement->fetch(PDO::FETCH_ASSOC);
+
+if ($contact["user_id"] !== $_SESSION["user"]["id"]) {
+  http_response_code(403);
+  echo ("HTTP 403 UNAUTHORIZED");
+  return;
+}
 
 $error = null;
 
@@ -33,7 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       ":phone_number" => $_POST["phone_number"],
     ]);
 
-    header("Location: index.php");
+    $_SESSION["flash"] = ["message" => "Contact {$_POST['name']} updated."];
+
+    header("Location: home.php");
+    return;
   }
 }
 ?>
@@ -79,4 +95,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </div>
 </div>
+
 <?php require "partials/footer.php" ?>
