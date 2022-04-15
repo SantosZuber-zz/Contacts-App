@@ -10,4 +10,4 @@ CREATE TABLE contacts (
     phone_number VARCHAR(255)
 );
 
-INSERT INTO contacts (name, phone_number) VALUES ("Pepe", "123132321");
+INSERT INTO contacts (name, phone_number) VALUES ("Pepe", "123456789");
