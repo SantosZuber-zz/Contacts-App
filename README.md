@@ -1,5 +1,5 @@
 # Contacts-App
-> Following a tutorial by Antonio Sarossi.
+*Following a tutorial by Antonio Sarossi.*
 
 **How to make it work?**
 > 1st Step: 
