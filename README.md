@@ -6,7 +6,7 @@
 **Downloading and installing the components:**
 > 1st Step:
 >
-Go to: `www.apachefriends.org/` to download and install XAMPP on your computer.
+Go to: `www.apachefriends.org` to download and install XAMPP on your computer.
 
 > 2nd Step:
 >
@@ -16,7 +16,7 @@ On the installer, you only need to select to install the following components:
   <li>MySQL</li>
   <li>PHP</li>
 </ul>
-And I recommend to keep the default installation route.
+And I recommend to keep the default installation route (`C:\xampp`).
 > 3rd Step:
 >
 Once you have already installed it, open XAMPP Control Panel and make sure that you keep Apache and MySQL running while you are using Contacts-App. To make them run, just press start on both of them.
@@ -40,7 +40,7 @@ Then press accept to all.
 
 > 6th Step:
 
-The last thing you have to do, is going to C:\xampp\htdocs\contacts-app\sql\ and run a cmd or a bash and type:
+The last thing you have to do, is going to `C:\xampp\htdocs\contacts-app\sql\` and run a cmd or a bash and type:
 ```
 mysql --user root -p
 ```
