@@ -2,6 +2,9 @@
 *Following a tutorial by Antonio Sarossi.*
 
 **How to make it work?**
+<ul>
+  <li>Downloading and installing the components:</li>
+
 > 1st Step: 
 > 
 Go to: `www.apachefriends.org/` to download and install XAMPP on your computer.
@@ -21,8 +24,13 @@ Once you have already installed it, open XAMPP Control Panel and make sure that 
 
 > 4th Step: 
 > 
-Now move the Contacts-App folder to /xampp/htdocs/.
+Now download the repository of Contacts-App, rename it to contacts-app and then move the folder to /xampp/htdocs/.
+</ul>
 
-> 5th Step 
-> 
+
+
+
+
+
+
 Now that you have all settled down, to open the Contacts-App App, you have to type this on your browser: `localhost/contacts-app/`. If you did everything correctly, that should work.
