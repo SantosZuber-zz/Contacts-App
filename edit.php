@@ -2,6 +2,19 @@
 
 require "database.php";
 
+$id = $_GET["id"];
+
+$statement = $conn->prepare("SELECT * FROM contacts WHERE id = :id LIMIT 1");
+$statement->execute([":id" => $id]);
+
+if ($statement->rowCount() == 0) {
+  http_response_code(404);
+  echo ("HTTP 404 NOT FOUND");
+  return;
+}
+
+$contact = $statement->fetch(PDO::FETCH_ASSOC);
+
 $error = null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,10 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $phoneNumber = $_POST["phone_number"];
 
-    $statement = $conn->prepare("INSERT INTO contacts (name, phone_number) VALUES (:name, :phone_number)");
-    $statement->bindParam(":name", $_POST["name"]);
-    $statement->bindParam(":phone_number", $_POST["phone_number"]);
-    $statement->execute();
+    $statement = $conn->prepare("UPDATE contacts SET name = :name, phone_number = :phone_number WHERE id = :id");
+    $statement->execute([
+      ":id" => $id,
+      ":name" => $_POST["name"],
+      ":phone_number" => $_POST["phone_number"],
+    ]);
 
     header("Location: index.php");
   }
@@ -36,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   <!-- Static Content -->
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./static/css/index.css" />
 
   <title>Contacts App</title>
 </head>
@@ -45,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand font-weight-bold" href="#">
-        <img class="mr-2" src="./assets/img/logo.png" />
-        ContactsApp
+        <img class="mr-2" src="./static/img/logo.png" />
+        Contacts App
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -76,12 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <?= $error ?>
                 </p>
               <?php endif ?>
-              <form method="POST" action="add.php">
+              <form method="POST" action="edit.php?id=<?= $contact['id'] ?>">
                 <div class="mb-3 row">
                   <label for="name" class="col-md-4 col-form-label text-md-end">Name</label>
 
                   <div class="col-md-6">
-                    <input id="name" type="text" class="form-control" name="name" autocomplete="name" autofocus>
+                    <input value="<?= $contact['name'] ?>" id="name" type="text" class="form-control" name="name" autocomplete="name" autofocus>
                   </div>
                 </div>
 
@@ -89,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <label for="phone_number" class="col-md-4 col-form-label text-md-end">Phone Number</label>
 
                   <div class="col-md-6">
-                    <input id="phone_number" type="tel" class="form-control" name="phone_number" autocomplete="phone_number" autofocus>
+                    <input value="<?= $contact['phone_number'] ?>" id="phone_number" type="tel" class="form-control" name="phone_number" autocomplete="phone_number" autofocus>
                   </div>
                 </div>
 
