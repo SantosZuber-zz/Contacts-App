@@ -26,6 +26,7 @@ Once you have already installed it, open XAMPP Control Panel and make sure that 
 Now download the repository of Contacts-App, rename the folder to contacts-app and then move it to /xampp/htdocs/.
 
 **Configurating things**
+
 *Now that you have downlaoded and installed everything, you have to configure some things.*
 
 > 5th Step:
