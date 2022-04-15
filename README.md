@@ -17,7 +17,7 @@ On the installer, you only need to select to install the following components:
 
 > 3rd Step: 
 > 
-Once you have already installed it, open XAMPP Control Panel and make sure that you keep Apache and MySQL running while you open Contacts-App. To make them run, just press start on both of them.
+Once you have already installed it, open XAMPP Control Panel and make sure that you keep Apache and MySQL running while you are using Contacts-App. To make them run, just press start on both of them.
 
 > 4th Step: 
 > 
