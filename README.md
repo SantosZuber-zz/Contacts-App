@@ -16,7 +16,7 @@ On the installer, you only need to select to install the following components:
   <li>MySQL</li>
   <li>PHP</li>
 </ul>
-And I recommend to keep the default installation route ( `C:\xampp` ).
+And I recommend to keep the default installation route (C:\xampp).
 > 3rd Step:
 >
 Once you have already installed it, open XAMPP Control Panel and make sure that you keep Apache and MySQL running while you are using Contacts-App. To make them run, just press start on both of them.
