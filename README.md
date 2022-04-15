@@ -31,7 +31,7 @@ Now download the repository of Contacts-App, rename the folder to contacts-app a
 
 > 5th Step:
 
-Now, you have to add PHP and MySQL to your PATH. [Only for windows] Search for `Edit your system enviroment variables`, now in Advanced, go to Enviroment Variables...
+Now, you have to add PHP and MySQL to your PATH. [Only for windows] Search for 'Edit your system enviroment variables' on the Control Panel, now in Advanced, go to Enviroment Variables...
 now in your System Variables, edit Path, and then add the following routes:
 <ul>
   <li>C:\xampp\php</li>
@@ -51,4 +51,5 @@ On `Enter password:` just type Enter.
 SOURCE setup.sql
 ```
 > 7th You are ready!:
+> 
 Now that you have all settled down, to use Contacts-App, you have to type this on your browser: `localhost/contacts-app/`. If you did everything correctly, that should work.
