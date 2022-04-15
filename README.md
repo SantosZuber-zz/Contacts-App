@@ -25,4 +25,4 @@ Now move the Contacts-App folder to /xampp/htdocs/.
 
 > 5th Step 
 > 
-Now you have all settled down, for opening the Contacts-App App, you have to type this on your browser: `localhost/contacts-app/`. If you did everything correctly, that should work.
+Now that you have all settled down, to open the Contacts-App App, you have to type this on your browser: `localhost/contacts-app/`. If you did everything correctly, that should work.
