@@ -17,11 +17,11 @@ On the installer, you only need to select to install the following components:
 
 > 3rd Step: 
 > 
-Open XAMPP Control Panel and make sure that you keep Apache and MySQL running while you open Contacts-App. To make them run, just press start on both of them.
+Once you have already installed it, open XAMPP Control Panel and make sure that you keep Apache and MySQL running while you open Contacts-App. To make them run, just press start on both of them.
 
 > 4th Step: 
 > 
-Now move the folder of Contacts-App inside of /xampp/htdocs/.
+Now move the Contacts-App folder to /xampp/htdocs/.
 
 > 5th Step 
 > 
