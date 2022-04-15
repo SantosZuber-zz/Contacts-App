@@ -11,6 +11,10 @@
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   <!-- Static Content -->
+  <?php $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) ?>
+  <?php if ($uri == "/contacts-app/" || $uri == "/contacts-app/index.php") : ?>
+    <script defer src="./js/welcome.js"></script>
+  <?php endif ?>
   <link rel="stylesheet" href="./css/style.css" />
 
   <title>Contacts App</title>
@@ -20,4 +24,4 @@
   <?php require "navbar.php" ?>
 
   <main>
-    <!-- Content here -->
+    <!-- Content Here -->
